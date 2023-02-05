@@ -11,15 +11,16 @@ function forecast(latitude, longitude, callback) {
         } else if (body.error) {
             callback("Invalid coordinates",undefined)
         } else {
-
+            console.log(body)
             const temperature = body.current.temperature
             const apparent_temp = body.current.feelslike
-            const precip = body.current.precip
+            const humidity = body.current.humidity
+            const description = body.current.weather_descriptions[0]
 
             callback(undefined, `It is currently ${temperature} degrees out. It feels like ${apparent_temp} ` +
-            `degrees out.There is a ${precip}% chance of rain.`)
+            `degrees out. Current weather is ${description}. Humidity is at ${humidity}%.`)
         }
     })
 }
-
 module.exports = forecast
+
