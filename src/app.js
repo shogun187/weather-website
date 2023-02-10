@@ -69,6 +69,16 @@ app.get('/weather', (req, res) => {
 
 })
 
+app.get('/coord', (req, res) => {
+    forecast(req.query.latitude, req.query.longitude, (error, forecastData) => {
+        console.log(req.query.latitude, req.query.longitude)
+        if (error) {
+            return res.send({error})
+        }
+        res.send({forecast: forecastData})
+    })
+})
+
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
