@@ -37,7 +37,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        helpText: 'This is some helpful text.',
+        helpText: 'To see the current weather for your location, type your location into the provided search box. Alternatively, you may click on the Use Your Current Location button.',
         title: "Help",
         name: "Shaugn",
     })
